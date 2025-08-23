@@ -11,7 +11,7 @@ You can try this [here](???)
 2. To visualize decision regions along the depth of the decision tree
 
 Note that 
-1. Below formulation is reproduced from [here](https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation) for illustration and to show the extension of the definition
+1. Below formulation is reproduced from [here](https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation) for illustration and to show how impurity definintion is extended
 2. I tried my best to keep the text minimal (wherever it is self-explanatory) so that the article is concise.
 3. The definition of node impurity is expanded as mentioned in the [Node impurity vs Tree depth figure](#node-impurity-vs-tree-depth-figure) subsection.
 
