@@ -14,6 +14,7 @@ Note that
 1. Below formulation is reproduced from [here](https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation) for illustration and to show how impurity definintion is extended
 2. I tried my best to keep the text minimal (wherever it is self-explanatory) so that the article is concise.
 3. The definition of node impurity is expanded as mentioned in the [Node impurity vs Tree depth figure](#node-impurity-vs-tree-depth-figure) subsection.
+4. I used mouse hover functionality for WebApp, hence it works best on PC
 
 If you are well-versed with the mathematical formulation of decision trees, you can skip to the [WebApp](#webapp) section directly. 
 
