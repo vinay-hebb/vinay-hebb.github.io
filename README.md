@@ -4,7 +4,7 @@ A simple GIF can communicate a lot.
 
 ![WebApp Demo](Demo1.gif)
 
-You can try this [here](???)
+You can try this [here](https://huggingface.co/spaces/hvinay/DecisionTreeVis). Code can be found [here](https://github.com/vinay-hebb/DecisionTreeVis)
 
 ## Contributions
 1. To demonstrate how impurity reduces with depth
