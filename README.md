@@ -26,7 +26,7 @@ A **Decision Tree Classifier** is a supervised learning algorithm that recursive
 
 Given:
 - $x_i \in \mathbb{R}^n,\quad i = 1, \ldots, l$
-- $y \in \mathbb{R}$ (or for classification, $y \in \{0,\ldots, K-1\})
+- $y \in \mathbb{R}$ (or for classification, $y \in \{0,\ldots, K-1\}$)
 <!-- - $y \in \mathbb{R}^l$<ques>Is it l or scalar?</ques> -->
 
 The goal is to find an estimator which estimates $y$ reliably for a new example $x$. One way to estimate a new example's label is by splitting the given region and labeling split regions as a particular label if we have sufficient confidence. Any new example is assigned that label if it falls in the split region. A computationally simple way to split into regions is to use thresholds on particular features. To gain confidence in regions, we can split them into many regions recursively. This can be represented as a tree with nodes. Each node has a split condition and a set of examples associated with it.
@@ -77,7 +77,7 @@ $G(Q_m, \theta)$ can also be thought of as the weighted average impurity after t
 
 To get the best $\theta^*$, we can choose as below:
 
-$$\theta^* = \underset{\theta}{\operatorname{argmin}}\, G(Q_m, \theta)$$
+$$\theta^* = \underset{\theta}{\arg \min}\, G(Q_m, \theta)$$
 
 <!-- <ques>Is it impurity reduction or impurity?</ques> <imp>It does not matter since impurity of node $m$ does not change with $\theta$</imp> -->
 
@@ -92,7 +92,7 @@ Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable d
 1. At each node $m$:
     - For every feature $j$ and possible threshold $t$:
         - Compute the impurity of the split $G(Q_m, \theta)$, where $\theta = (j, t)$.
-    - Select the split $\theta^* = (j^*, t^*)$ that minimizes $G(Q_m, \theta)$.
+    - Select the split $`\theta^* = (j^*, t^*)`$ that minimizes $G(Q_m, \theta)$.
     - Split the data into $Q_m^{left}$ and $Q_m^{right}$ using $\theta^*$.
 2. Recursively repeat step 1 for the left and right child nodes.
 3. Stop splitting when a stopping criterion is met (e.g., maximum depth, minimum samples per node, or node is pure).
