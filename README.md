@@ -1,4 +1,5 @@
 ---
+title: Decision Tree Visualization
 layout: default
 ---
 # A Quick Demonstration of WebApp
