@@ -60,9 +60,12 @@ where
 - $I(\cdot)$ is the indicator function
 
 To denote impurity considering all classes at node $m$, we can write:
+
 $$H(Q_m) = \sum_{k=1}^{K} \hat{p}_{mk}(1 - \hat{p}_{mk})$$
 
-> Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
+<blockquote>
+<p> Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
+</blockquote>
 <!-- > Let us write some mathematical notations to denote how we split into regions. When do we say we have sufficient "confidence"? One way to mesure is to use Gini impurity. -->
 
 # Quality of Split
@@ -96,7 +99,7 @@ Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable d
 1. At each node $m$:
     - For every feature $j$ and possible threshold $t$:
         - Compute the impurity of the split $G(Q_m, \theta)$, where $\theta = (j, t)$.
-    - Select the split $`\theta^* = (j^*, t^*)`$ that minimizes $G(Q_m, \theta)$.
+    - Select the split $\theta^* = (j^*, t^*)$ that minimizes $G(Q_m, \theta)$.
     - Split the data into $Q_m^{left}$ and $Q_m^{right}$ using $\theta^*$.
 2. Recursively repeat step 1 for the left and right child nodes.
 3. Stop splitting when a stopping criterion is met (e.g., maximum depth, minimum samples per node, or node is pure).
