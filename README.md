@@ -26,10 +26,10 @@ A **Decision Tree Classifier** is a supervised learning algorithm that recursive
 
 Given:
 - $x_i \in \mathbb{R}^n,\quad i = 1, \ldots, l$
-- $y \in \mathbb{R}$
+- $y \in \mathbb{R}$ (or for classification, $y \in \{0,\ldots, K-1\})
 <!-- - $y \in \mathbb{R}^l$<ques>Is it l or scalar?</ques> -->
 
-The goal is to find an estimator which estimates $y$ reliably for a new example $x$. One way to estimate a new example's label is by splitting the given region and labeling split regions as a particular label if we have sufficient confidence. Any new example is assigned that label if it falls in the given region. A computationally simple way to split into regions is to use thresholds on particular features. To gain confidence in regions, we can split them into many regions recursively. This can be represented as a tree with nodes. Each node has a split condition and a set of examples associated with it.
+The goal is to find an estimator which estimates $y$ reliably for a new example $x$. One way to estimate a new example's label is by splitting the given region and labeling split regions as a particular label if we have sufficient confidence. Any new example is assigned that label if it falls in the split region. A computationally simple way to split into regions is to use thresholds on particular features. To gain confidence in regions, we can split them into many regions recursively. This can be represented as a tree with nodes. Each node has a split condition and a set of examples associated with it.
 
 # Notations
 
@@ -49,7 +49,7 @@ We have set up the regions, but we have not answered when we have sufficient "co
 
 # Gini Impurity
 
-Let us assume $y$ takes values $0,\ldots, K-1$ (i.e., $K$ classes). For a node $m$ and class $k$, we can write probabilities $p_{mk}$ as:
+Let us assume $y$ takes values $0,\ldots, K-1$ (i.e., $K$ classes for classification). For a node $m$ and class $k$, we can write probabilities $p_{mk}$(to measure proportion of each class) as:
 $$p_{mk} = \frac{1}{n_m} \sum_{y \in Q_m} I(y = k)$$
 where
 - $n_m$ is the number of samples at node $m$
@@ -58,11 +58,12 @@ where
 To denote impurity considering all classes at node $m$, we can write:
 $$H(Q_m) = \sum_{k=1}^{K} \hat{p}_{mk}(1 - \hat{p}_{mk})$$
 
+> Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
 <!-- > Let us write some mathematical notations to denote how we split into regions. When do we say we have sufficient "confidence"? One way to mesure is to use Gini impurity. -->
 
 # Quality of Split
 
-We have not explained how to grow the tree using the impurity function. We can write what the impurity will be after choosing $\theta=(j, t_m)$, which shows the quality of the split:
+We have not explained how to grow the tree using the above impurity function. To grow a tree, we need to make split by choosing a particular feature and threshold. We can write what the impurity will be after choosing $\theta=(j, t_m)$, which shows the quality of the split:
 
 $$G(Q_m, \theta) = \frac{n_m^{left}}{n_m} H(Q_m^{left}(\theta)) + \frac{n_m^{right}}{n_m} H(Q_m^{right}(\theta))$$
 
@@ -100,12 +101,12 @@ Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable d
 
 Given a trained decision tree and a new input sample $x$:
 
-1. **Start at the root node.**
-2. **At each internal node:**
+1. Start at the root node.
+2. At each internal node:
     - Evaluate the split condition (e.g., "Is feature $j$ less than threshold $t$?").
     - If the condition is true, move to the left child node; otherwise, move to the right child node.
-3. **Repeat step 2** until a leaf node $l$ is reached.
-4. **At the leaf node $l$:**  
+3. Repeat step 2 until a leaf node $l$ is reached.
+4. At the leaf node $l$:
    - For classification, the predicted class is:
      $$\hat{y} = \underset{k \in \{0, \ldots, K-1\}}{\operatorname{argmax}} \; p_{lk}$$
      where $p_{lk}$ is the proportion of class $k$ samples in leaf $l$ (or probabilities as defined earlier).
@@ -122,13 +123,13 @@ Traverse the tree according to the split conditions until a leaf is reached, the
 2. A decision tree classifier (single tree) is trained on the generated data.
 3. The trained decision tree is visualized (called the Decision Tree Structure figure).
 4. Node impurity (or weighted average impurity) for each depth is visualized (called the Node impurity vs Tree depth figure).
-5. When a user hovers on the impurity vs depth plot, a truncated decision tree (tree truncated up to hovered depth) is created using the trained decision tree.
+5. When the user hovers on the impurity vs depth plot, a truncated decision tree (tree truncated up to hovered depth) is created using the trained decision tree.
 6. Using the truncated tree, data is reclassified and visualized (called the Decision regions of subtree figure) to provide insights about how decision regions and split conditions are formed.
 
-## Note
+### Note
 1. When user hovers on node $m$ with depth $d$, decision boundaries are visualized for depth=$d$ rather than node $m$(i.e., all nodes with depth=$d$ are considered leaf nodes)
 2. Sometimes it can so happen that decision boundary regions dont change with depth, this is possible as tree may predict the same label after the split
-3. Node impurity vs Tree depth figure has reversed x and y axis(to align tree depth and yaxis)
+3. Node impurity vs Tree depth figure has reversed $x$ and $y$ axis(to align tree depth and yaxis)
 4. Leaf nodes don't have split conditions.
 5. Maximum depth is the total number of levels in the tree. For the root node, Depth = $0$.
 
@@ -139,7 +140,7 @@ Traverse the tree according to the split conditions until a leaf is reached, the
     2. **samples and prediction**: For the data at node $m$, how many samples belong to each class in their ground truths and what will be the prediciton at that node e.g.: `samples == [3, 8], predict=1`. For all `11 samples`, node $m$ predicts them as class `1`
 2. Entire tree structure obtained is visualized for the given data
 3. Note that effect of split condition is not associated with prediction in that node
-4. Every node shows a condition, when a new example arrives if condition is true then new example is sent to left child node
+4. When a new example arrives if condition is true then new example is sent to left child node
 
 ## Decision regions of subtree figure
 1. This shows decision regions considering a given truncated tree
