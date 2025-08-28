@@ -63,9 +63,7 @@ To denote impurity considering all classes at node $m$, we can write:
 
 $$H(Q_m) = \sum_{k=1}^{K} \hat{p}_{mk}(1 - \hat{p}_{mk})$$
 
-<blockquote>
-<p> Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
-</blockquote>
+> Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
 <!-- > Let us write some mathematical notations to denote how we split into regions. When do we say we have sufficient "confidence"? One way to mesure is to use Gini impurity. -->
 
 # Quality of Split
