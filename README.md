@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # A Quick Demonstration of WebApp
 
 A simple GIF can communicate a lot.
