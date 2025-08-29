@@ -43,3 +43,10 @@ button {
 button:hover {
     background-color: #4cae4c;
 }
+
+blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1.25rem;
+  margin-left: 0;
+  color: #666;
+}
