@@ -17,7 +17,7 @@ You can try this [here](https://huggingface.co/spaces/hvinay/DecisionTreeVis). C
 Note that 
 1. Below formulation is reproduced from [here](https://scikit-learn.org/stable/modules/tree.html#mathematical-formulation) for illustration and to show how impurity definintion is extended
 2. I tried my best to keep the text minimal (wherever it is self-explanatory) so that the article is concise.
-3. The definition of node impurity is expanded as mentioned in the [Node impurity vs Tree depth figure](#node-impurity-vs-tree-depth-figure) subsection.
+3. The definition of node impurity is expanded as mentioned in the [Extensions](#extensions) subsection.
 4. I used mouse hover functionality for WebApp, hence it works best on PC
 
 If you are well-versed with the mathematical formulation of decision trees, you can skip to the [WebApp](#webapp) section directly. 
@@ -113,7 +113,9 @@ Given a trained decision tree and a new input sample $x$:
 3. Repeat step 2 until a leaf node $l$ is reached.
 4. At the leaf node $l$:
    - For classification, the predicted class is:
+
      $$\hat{y} = \underset{k \in \{0, \ldots, K-1\}}{\operatorname{argmax}} \; p_{lk}$$
+     
      where $p_{lk}$ is the proportion of class $k$ samples in leaf $l$ (or probabilities as defined earlier).
 
 <!-- <note>**Summary:**</note>
@@ -121,6 +123,14 @@ Traverse the tree according to the split conditions until a leaf is reached, the
  -->
 
 # WebApp
+
+## Extensions
+
+1. Node impurity is computed similar to the quality of split defined in the [Quality of split](#quality-of-split) section, except that all nodes, predictions, and their corresponding data are considered at that depth.
+
+$$\sum_{\text{node m at depth d}} \frac{n_m}{\text{Total samples at depth d}} H(Q_m)$$
+
+2. After a decision tree is trained, to understand impurity at each depth, one can look at the samples at each node and make predictions based on majority class at that node. Another way is to truncate the tree at that depth and make predictions based on the truncated tree. Later is implemented in the WebApp.
 
 ## How WebApp Works
 
@@ -158,7 +168,6 @@ Traverse the tree according to the split conditions until a leaf is reached, the
     1. The decision boundary should reflect all splits from the root to depth $d$.
     2. Classification corresponding to that depth is visualized without considering **split conditions of nodes at that depth** (these conditions are used to grow the tree further).
     3. In other words, if one hovers on $\text{depth}=d$, then regions belonging to $Q_m^{left}$ and $Q_m^{right}$ (nodes having depth $d$) are not visualized, but all regions belonging to node $m$ having depth less than $d$ are.
-3. Node impurity is computed similar to the quality of split defined in the [Quality of split](#quality-of-split) section, except that all nodes, predictions, and their corresponding data are considered at that depth.
 
 ## Instance 1
 
