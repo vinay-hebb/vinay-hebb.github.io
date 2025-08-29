@@ -8,12 +8,12 @@ layout: default
 
 - [A Quick Demonstration of WebApp](#a-quick-demonstration-of-webapp)
 - [Decision Tree Classifier: Mathematical Formulation (scikit-learn)](#decision-tree-classifier-mathematical-formulation-scikit-learn)
-- [Background](#background)
-- [Notations](#notations)
-- [Gini Impurity](#gini-impurity)
-- [Quality of Split](#quality-of-split)
-- [Training Algorithm](#training-algorithm)
-- [Inference Algorithm](#inference-algorithm)
+    - [Background](#background)
+    - [Notations](#notations)
+    - [Gini Impurity](#gini-impurity)
+    - [Quality of Split](#quality-of-split)
+    - [Training Algorithm](#training-algorithm)
+    - [Inference Algorithm](#inference-algorithm)
 - [WebApp](#webapp)
     - [Extensions](#extensions)
     - [How WebApp Works](#how-webapp-works)
@@ -49,7 +49,7 @@ If you are well-versed with the mathematical formulation of decision trees, you 
 
 A **Decision Tree Classifier** is a supervised learning algorithm that recursively partitions the feature space to classify data points. The scikit-learn implementation uses the **CART** (Classification and Regression Trees) algorithm, which builds binary trees using the feature and threshold that yield the largest information gain (or impurity reduction).
 
-# Background
+## Background
 
 Given:
 - $x_i \in \mathbb{R}^n,\quad i = 1, \ldots, l$
@@ -58,7 +58,7 @@ Given:
 
 The goal is to find an estimator which estimates $y$ reliably for a new example $x$. One way to estimate a new example's label is by splitting the given region and labeling split regions as a particular label if we have sufficient confidence. Any new example is assigned that label if it falls in the split region. A computationally simple way to split into regions is to use thresholds on particular features. To gain confidence in regions, we can split them into many regions recursively. This can be represented as a tree with nodes. Each node has a split condition and a set of examples associated with it.
 
-# Notations
+## Notations
 
 - Consider a node $m$ and let the feature be $j$ on which we make a split.
 - Let us denote $\theta=(j, t_m)$, where $t_m$ is the threshold which separates 2 regions.
@@ -74,7 +74,7 @@ $$
 
 We have set up the regions, but we have not answered when we have sufficient "confidence" to assign a label to a region. We can use Gini impurity to measure it.
 
-# Gini Impurity
+## Gini Impurity
 
 Let us assume $y$ takes values $0,\ldots, K-1$ (i.e., $K$ classes for classification). For a node $m$ and class $k$, we can write probabilities $p_{mk}$(to measure proportion of each class) as:
 $$p_{mk} = \frac{1}{n_m} \sum_{y \in Q_m} I(y = k)$$
@@ -89,7 +89,7 @@ $$H(Q_m) = \sum_{k=1}^{K} \hat{p}_{mk}(1 - \hat{p}_{mk})$$
 > Impurity denotes uncertainty about the node. If only one class is present($H(Q_m)=0$) in the node, then node is *pure* and there is no uncertainty
 <!-- > Let us write some mathematical notations to denote how we split into regions. When do we say we have sufficient "confidence"? One way to mesure is to use Gini impurity. -->
 
-# Quality of Split
+## Quality of Split
 
 We have not explained how to grow the tree using the above impurity function. To grow a tree, we need to make split by choosing a particular feature and threshold. We can write what the impurity will be after choosing $\theta=(j, t_m)$, which shows the quality of the split:
 
@@ -115,7 +115,7 @@ Note that:
 
 Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable depth is reached, $n_m < \text{min}_{\text{samples}}$, or $n_m = 1$.
 
-# Training Algorithm
+## Training Algorithm
 
 1. At each node $m$:
     - For every feature $j$ and possible threshold $t$:
@@ -125,7 +125,7 @@ Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable d
 2. Recursively repeat step 1 for the left and right child nodes.
 3. Stop splitting when a stopping criterion is met (e.g., maximum depth, minimum samples per node, or node is pure).
 
-# Inference Algorithm
+## Inference Algorithm
 
 Given a trained decision tree and a new input sample $x$:
 
