@@ -2,6 +2,29 @@
 title: Decision Tree Visualization
 layout: default
 ---
+<h1 align="center">Decision Tree Impurity Visualization</h1>
+
+## Table of Contents
+
+- [A Quick Demonstration of WebApp](#a-quick-demonstration-of-webapp)
+- [Decision Tree Classifier: Mathematical Formulation (scikit-learn)](#decision-tree-classifier-mathematical-formulation-scikit-learn)
+- [Background](#background)
+- [Notations](#notations)
+- [Gini Impurity](#gini-impurity)
+- [Quality of Split](#quality-of-split)
+- [Training Algorithm](#training-algorithm)
+- [Inference Algorithm](#inference-algorithm)
+- [WebApp](#webapp)
+    - [Extensions](#extensions)
+    - [How WebApp Works](#how-webapp-works)
+    - [Decision Tree Structure figure](#decision-tree-structure-figure)
+    - [Decision regions of subtree figure](#decision-regions-of-subtree-figure)
+    - [Node impurity vs Tree depth figure](#node-impurity-vs-tree-depth-figure)
+    - [Instance 1](#instance-1)
+    - [Instance 2](#instance-2)
+    - [Observations](#observations)
+- [References](#references)
+
 # A Quick Demonstration of WebApp
 
 A simple GIF can communicate a lot.
