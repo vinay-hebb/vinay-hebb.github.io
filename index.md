@@ -97,7 +97,7 @@ Recurse for subsets $Q_m^{left}$ and $Q_m^{right}$ until the maximum allowable d
 1. At each node $m$:
     - For every feature $j$ and possible threshold $t$:
         - Compute the impurity of the split $G(Q_m, \theta)$, where $\theta = (j, t)$.
-    - Select the split $\theta^* = (j^*, t^*)$ that minimizes $G(Q_m, \theta)$.
+    - Select the split $\theta^* = (j^* , t^*)$ that minimizes $G(Q_m, \theta)$.
     - Split the data into $Q_m^{left}$ and $Q_m^{right}$ using $\theta^*$.
 2. Recursively repeat step 1 for the left and right child nodes.
 3. Stop splitting when a stopping criterion is met (e.g., maximum depth, minimum samples per node, or node is pure).
