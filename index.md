@@ -6,7 +6,7 @@ layout: default
 
 A simple GIF can communicate a lot.
 
-![WebApp Demo](Demo1.gif)
+![WebApp Demo](assets/Demo1.gif)
 
 You can try this [here](https://huggingface.co/spaces/hvinay/DecisionTreeVis). Code can be found [here](https://github.com/vinay-hebb/DecisionTreeVis)
 
@@ -173,13 +173,13 @@ $$\sum_{\text{node m at depth d}} \frac{n_m}{\text{Total samples at depth d}} H(
 
 - We can see how the decision tree classifies "easier" samples on the left first correctly and goes deeper to classify "harder" examples on the right.
 
-![Instance 1](Simple1.gif)
+![Instance 1](assets/Simple1.gif)
 
 ## Instance 2
 
 - Impurity need not reach $0$ at leaf nodes based on various hyperparameters (in this case, `max_depth=7`) and data.
 
-![Instance 2](./NonZeroImpurity1,%20200%20samples.gif)
+![Instance 2](assets/NonZeroImpurity1,%20200%20samples.gif)
 
 ## Observations
 
