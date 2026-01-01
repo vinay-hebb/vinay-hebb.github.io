@@ -13,7 +13,7 @@ layout: default
   <div class="stat-row">
     <div class="stat-card">
       <div class="label">Focus</div>
-      <div class="value">NLP/RAG demos & explainers</div>
+      <div class="value">NLP/AI Agents/RAG demos & explainers</div>
     </div>
     <div class="stat-card">
       <div class="label">Style</div>
@@ -38,6 +38,30 @@ layout: default
       <div class="link-row">
         <a class="pill" href="https://github.com/vinay-hebb/RAG/blob/main/README.md" target="_blank" rel="noopener">📝 Overview</a>
         <a class="pill" href="https://github.com/vinay-hebb/RAG" target="_blank" rel="noopener">💻 Code</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <h3>DSPy-examples</h3>
+      <p>Examples of using DSPy for various NLP tasks.</p>
+      <div class="link-row">
+        <a class="pill" href="https://github.com/vinay-hebb/DSPy-examples/blob/main/README.md" target="_blank" rel="noopener">📝 Overview</a>
+        <a class="pill" href="https://github.com/vinay-hebb/DSPy-examples" target="_blank" rel="noopener">💻 Code</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <h3>Deep Research Agent</h3>
+      <p>A deep research agent that can answer questions based on a given context.</p>
+      <div class="link-row">
+        <a class="pill" href="https://github.com/vinay-hebb/deep_research_agent/blob/main/README.md" target="_blank" rel="noopener">📝 Overview</a>
+        <a class="pill" href="https://github.com/vinay-hebb/deep_research_agent" target="_blank" rel="noopener">💻 Code</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <h3>LLM Fine-tuning</h3>
+      <p>Fine-tuning LLMs for various NLP tasks.</p>
+      <div class="link-row">
+        <a class="pill" href="https://github.com/vinay-hebb/llm_ft/blob/main/README.md" target="_blank" rel="noopener">📝 Overview</a>
+        <a class="pill" href="https://github.com/vinay-hebb/llm_ft" target="_blank" rel="noopener">💻 Code</a>
       </div>
     </article>
     <article class="project-card">
@@ -82,6 +106,9 @@ layout: default
         <span class="tag">RAG & agentic retrieval</span>
         <span class="tag">Rerankers & evaluation</span>
         <span class="tag">In-depth mathematical understanding</span>
+        <span class="tag">DSPy</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">LLMs</span>
         <span class="tag">Interpretable ML</span>
         <span class="tag">Model intuition</span>
       </div>
