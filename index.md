@@ -46,6 +46,7 @@ layout: default
       <div class="link-row">
         <a class="pill" href="https://github.com/vinay-hebb/DSPy-examples/blob/main/README.md" target="_blank" rel="noopener">📝 Overview</a>
         <a class="pill" href="https://github.com/vinay-hebb/DSPy-examples" target="_blank" rel="noopener">💻 Code</a>
+        <a class="pill" href="https://vinay-hebb.github.io/DSPy-examples/" target="_blank" rel="noopener">🌐 Live site</a>
       </div>
     </article>
     <article class="project-card">
